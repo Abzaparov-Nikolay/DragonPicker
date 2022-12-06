@@ -45,6 +45,7 @@ public class EnemyDragon : MonoBehaviour
         if(UnityEngine.Random.value < chanceDirection)
         {
             speed *= -1;
+            DragonPicker.SaveAchivement("Sometimes directions are reversed");
         }
     }
 }

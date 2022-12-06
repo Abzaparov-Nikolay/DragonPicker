@@ -35,6 +35,10 @@ public class EnergyShield : MonoBehaviour
         }
         var score = int.Parse(scoreGT.text);
         score += 1;
+        if(score == 1)
+        {
+            DragonPicker.SaveAchivement("You got one baby dragon");
+        }
         scoreGT.text = score.ToString();
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();

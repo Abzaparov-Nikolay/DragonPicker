@@ -11,6 +11,9 @@ public class YandexSDKManager : MonoBehaviour
     public UnityEvent authorizationEvent;
 
     private bool isFirstLaunch = true;
+    public TextMeshProUGUI bestScoreGO;
+
+
     public void AuthorizationSuccessfull()
     {
         textBox.text = $"Authorization successfull. Hello, {YandexGame.playerName}!";
@@ -19,11 +22,14 @@ public class YandexSDKManager : MonoBehaviour
     public void AuthorizationFailed()
     {
         textBox.text = "Authorization failed.";
+        YandexGame.AuthDialog();
     }
 
     private void OnEnable()
     {
         YandexGame.GetDataEvent += ReceiveSDKData;
+        DisplayData();
+
     }
 
     private void OnDisable()
@@ -33,11 +39,20 @@ public class YandexSDKManager : MonoBehaviour
 
     public void ReceiveSDKData()
     {
-        if(YandexGame.SDKEnabled && isFirstLaunch)
+        
+        if (YandexGame.SDKEnabled && isFirstLaunch)
         {
             textBox.text = "SDK enabled. Waiting for authorization.";
             isFirstLaunch = false;
             authorizationEvent.Invoke();
+        }
+    }
+
+    public void DisplayData()
+    {
+        if (bestScoreGO != null)
+        {
+            bestScoreGO.text = $"Best Score: {YandexGame.savesData.bestScore}";
         }
     }
 }
