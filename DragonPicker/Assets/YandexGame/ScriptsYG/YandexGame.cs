@@ -356,8 +356,8 @@ namespace YG
                 FullAdShow();
 #else
                 Message("Fullscren Ad");
-                //OpenFullscreen();
-                //StartCoroutine(TestCloseFullAd());
+                OpenFullscreen();
+                StartCoroutine(TestCloseFullAd());
 #endif
             }
             else Message("(ru) Отображение полноэкранной рекламы заблокировано! Еще рано.  (en) The display of full-screen ads is blocked! It's still early.");

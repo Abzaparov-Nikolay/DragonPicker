@@ -97,7 +97,7 @@ public class DragonPicker : MonoBehaviour
         SaveScore(int.Parse(scoreGT.text));
         SaveAchivement("Lol you died! Try to avoid it");
         YandexGame.NewLeaderboardScores("Leaderboard0", int.Parse(scoreGT.text));
-
+        YandexGame.RewVideoShow(0);
         SceneManager.LoadScene("_0Scene");
     }
 }
